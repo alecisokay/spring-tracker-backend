@@ -35,7 +35,7 @@ public class TicketServiceImpl implements TicketService{
         Users adminUser = this.userRepo.findById(id).get();
         System.out.println(decidedTicket);
         System.out.println(adminUser.getIs_admin());
-        if (!decidedTicket.isIs_decided() && adminUser.getIs_admin().toString().equals("IKDN98HF765DS")){
+        if (!decidedTicket.isIs_decided() && adminUser.getIs_admin().toString().equals("IKDN98HF765DS") && decidedTicket.getCreated_by_id() != id){
             System.out.println("this user  is an admin");
             decidedTicket.setIs_decided(decision);
             decidedTicket.setStatus(decision.toString());
