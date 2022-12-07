@@ -18,17 +18,20 @@ public class Users {
     private String email;
     @Column(name ="password")
     private String password;
+    @Column
+    private String is_admin;
 
 
     public Users() {
     }
 
-    public Users(int id, String first_name, String last_name, String email, String password) {
+    public Users(int id, String first_name, String last_name, String email, String password, String is_admin) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.password = password;
+        this.is_admin = is_admin;
     }
 
     public int getId() {
@@ -71,6 +74,14 @@ public class Users {
         this.password = password;
     }
 
+    public String getIs_admin() {
+        return is_admin;
+    }
+
+    public void setIs_admin(String is_admin) {
+        this.is_admin = is_admin;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -79,6 +90,7 @@ public class Users {
                 ", last_name='" + last_name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", is_admin='" + is_admin + '\'' +
                 '}';
     }
 }

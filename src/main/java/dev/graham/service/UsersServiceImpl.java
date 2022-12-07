@@ -1,11 +1,13 @@
-package dev.graham.UsersService;
+package dev.graham.service;
 
 import dev.graham.entities.Users;
 import dev.graham.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UsersServiceImpl implements UsersService{
     @Autowired
     UserRepo userRepo;
@@ -23,7 +25,7 @@ public class UsersServiceImpl implements UsersService{
 
     @Override
     public List<Users> getAllUsers() {
-        return null;
+        return userRepo.findAll();
     }
 
     @Override

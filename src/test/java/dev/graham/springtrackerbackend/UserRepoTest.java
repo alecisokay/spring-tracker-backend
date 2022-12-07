@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 @SpringBootTest
 public class UserRepoTest {
 
@@ -18,21 +16,21 @@ public class UserRepoTest {
 
     @Test
     void create_user(){
-        Users user = new Users(0, "admin", "admin", "Admin@test.com", "123456");
+        Users user = new Users(0, "random", "user", "random@test.com", "123456", null);
         Users savedUser = this.userRepo.save(user);
         System.out.println(savedUser);
-        Assertions.assertNotEquals(0, savedUser.getId());
+        Assertions.assertNotEquals(1, savedUser.getId());
     }
 
     @Test
     void get_user(){
         Users user = this.userRepo.findById(1).get();
-        Assertions.assertEquals(user.getFirst_name(), "admin");
+        Assertions.assertEquals(user.getFirst_name(), "test");
     }
 
     @Test
     void validate_user(){
-        Users user = this.userRepo.findByEmail("Admin@test.com");
+        Users user = this.userRepo.findByEmail("test@test.com");
         if (user.getPassword().equals("123456")) System.out.println("passwords match!");
     }
 }

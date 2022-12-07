@@ -1,4 +1,4 @@
-package dev.graham.UsersService;
+package dev.graham.service;
 
 import dev.graham.entities.Users;
 
