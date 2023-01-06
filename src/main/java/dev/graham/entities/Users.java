@@ -20,6 +20,8 @@ public class Users {
     private String password;
     @Column
     private String is_admin;
+    @Column
+    private String auth_Token;
 
 
     public Users() {
@@ -32,6 +34,21 @@ public class Users {
         this.email = email;
         this.password = password;
         this.is_admin = is_admin;
+    }
+
+    public Users(int id, String first_name, String last_name, String email, String password, String is_admin, String auth_Token) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.password = password;
+        this.is_admin = is_admin;
+        this.auth_Token = auth_Token;
+    }
+
+    public Users(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -76,6 +93,14 @@ public class Users {
 
     public String getIs_admin() {
         return is_admin;
+    }
+
+    public String getAuth_Token() {
+        return auth_Token;
+    }
+
+    public void setAuth_Token(String auth_Token) {
+        this.auth_Token = auth_Token;
     }
 
     public void setIs_admin(String is_admin) {
