@@ -10,5 +10,5 @@ public interface TicketService {
 
     Tickets getTicketById(int id);
 
-    Tickets decideTicket(int ticketId, Boolean decision, int id);
+    Tickets decideTicket(Tickets ticket);
 }

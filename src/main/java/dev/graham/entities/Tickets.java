@@ -41,6 +41,19 @@ public class Tickets {
         this.is_decided = is_decided;
     }
 
+
+    public Tickets(int id, int approved_by_id, String status) {
+        this.id = id;
+        this.approved_by_id = approved_by_id;
+        this.status = status;
+    }
+
+    public Tickets(int id, int approved_by_id, boolean is_decided) {
+        this.id = id;
+        this.approved_by_id = approved_by_id;
+        this.is_decided = is_decided;
+    }
+
     public int getId() {
         return id;
     }

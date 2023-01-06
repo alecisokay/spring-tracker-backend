@@ -13,5 +13,6 @@ public interface UserRepo extends JpaRepository<Users, Integer> {
     //<Entity, Datatype of primary key
 
 
+
     Users findByEmail(String email);
 }

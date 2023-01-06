@@ -29,7 +29,11 @@ public class TicketServiceImpl implements TicketService{
     }
 
     @Override
-    public Tickets decideTicket(int ticketId, Boolean decision, int id) {
+    public Tickets decideTicket(Tickets incomingTicket) {
+        int ticketId = incomingTicket.getId();
+        int id = incomingTicket.getApproved_by_id();
+        boolean decision = incomingTicket.isIs_decided();
+
         Tickets decidedTicket = this.ticketRepo.findById(ticketId).get();
         System.out.println(decidedTicket);
         Users adminUser = this.userRepo.findById(id).get();
@@ -38,7 +42,7 @@ public class TicketServiceImpl implements TicketService{
         if (!decidedTicket.isIs_decided() && adminUser.getIs_admin().toString().equals("IKDN98HF765DS") && decidedTicket.getCreated_by_id() != id){
             System.out.println("this user  is an admin");
             decidedTicket.setIs_decided(decision);
-            decidedTicket.setStatus(decision.toString());
+            decidedTicket.setStatus(String.valueOf(decision));
             decidedTicket.setApproved_by_id(id);
             decidedTicket.setApproved_by_name(adminUser.getEmail());
             this.ticketRepo.saveAndFlush(decidedTicket);

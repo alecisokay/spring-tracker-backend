@@ -7,6 +7,7 @@ import dev.graham.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -22,7 +23,7 @@ public class TicketController {
 
     @GetMapping("/updateticket")
     @ResponseBody
-    public Tickets ticketUpdate(){
-       return this.ticketService.decideTicket(3, true, 2);
+    public Tickets ticketUpdate(@RequestBody Tickets body){
+       return this.ticketService.decideTicket(body);
     }
 }
