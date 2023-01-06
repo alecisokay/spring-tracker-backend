@@ -48,6 +48,11 @@ public class Tickets {
         this.status = status;
     }
 
+    public Tickets(String description, double amount) {
+        this.description = description;
+        this.amount = amount;
+    }
+
     public Tickets(int id, int approved_by_id, boolean is_decided) {
         this.id = id;
         this.approved_by_id = approved_by_id;

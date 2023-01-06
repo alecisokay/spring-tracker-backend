@@ -18,10 +18,10 @@ public class Users {
     private String email;
     @Column(name ="password")
     private String password;
-    @Column
+    @Column(name="is_admin")
     private String is_admin;
-    @Column
-    private String auth_Token;
+    @Column(name="auth")
+    private String auth;
 
 
     public Users() {
@@ -36,19 +36,23 @@ public class Users {
         this.is_admin = is_admin;
     }
 
-    public Users(int id, String first_name, String last_name, String email, String password, String is_admin, String auth_Token) {
+    public Users(int id, String first_name, String last_name, String email, String password, String is_admin, String auth) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.password = password;
         this.is_admin = is_admin;
-        this.auth_Token = auth_Token;
+        this.auth = auth;
     }
 
     public Users(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public Users(String auth) {
+        this.auth = auth;
     }
 
     public int getId() {
@@ -95,12 +99,12 @@ public class Users {
         return is_admin;
     }
 
-    public String getAuth_Token() {
-        return auth_Token;
+    public String getAuth() {
+        return auth;
     }
 
-    public void setAuth_Token(String auth_Token) {
-        this.auth_Token = auth_Token;
+    public void setAuth(String auth) {
+        this.auth = auth;
     }
 
     public void setIs_admin(String is_admin) {
@@ -116,6 +120,7 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", is_admin='" + is_admin + '\'' +
+                ", auth='" + auth + '\'' +
                 '}';
     }
 }

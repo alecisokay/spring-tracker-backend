@@ -29,6 +29,11 @@ public class TicketServiceImpl implements TicketService{
     }
 
     @Override
+    public Tickets createTicket(Tickets ticket) {
+        return this.ticketRepo.saveAndFlush(ticket);
+    }
+
+    @Override
     public Tickets decideTicket(Tickets incomingTicket) {
         int ticketId = incomingTicket.getId();
         int id = incomingTicket.getApproved_by_id();

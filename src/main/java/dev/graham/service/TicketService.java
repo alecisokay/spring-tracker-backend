@@ -9,6 +9,8 @@ public interface TicketService {
     List<Tickets> getAllPendingTickets(String status);
 
     Tickets getTicketById(int id);
+    Tickets createTicket(Tickets ticket);
+
 
     Tickets decideTicket(Tickets ticket);
 }
